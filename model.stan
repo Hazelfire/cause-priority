@@ -19,8 +19,10 @@ parameters {
   real<lower=0,upper=1> givedirectly_proportion;
   real<lower=0> givedirectly_size_of_transfer;
   real<lower=0> givedirectly_household_size;
-  real<lower=0,upper=1> givedirectly_transfers_invested;
-  real<lower=0> givedirectly_consumption_per_capita;
+  r  vector<lower=0,upper=1>[amf_mission_count] amf_malaria_prevalence_between_5_9;
+eal<lower=0,upper=1> givedirectly_transfers_invested;
+   vector<lower=0,upper=1>[amf_mission_count] amf_malaria_prevalence_between_5_9;
+ real<lower=0> givedirectly_consumption_per_capita;
   real<lower=0,upper=1> givedirectly_roi;
   real<lower=0> givedirectly_investment_duration;
   real<lower=0,upper=1> givedirectly_percent_of_investment_returned;
@@ -60,6 +62,14 @@ parameters {
   real<lower=0> amf_years_until_long_term_benefits;
   real<lower=0> amf_duration_of_long_term_benifits;
   real<lower=0> amf_multiplier_resource_sharing;
+
+  // Deworm the World
+  real<lower=0> deworm_treatment_effect_on_ln_income;
+  real<lower=0,upper=1> deworm_coverage_in_treatment_group;
+  real<lower=0,upper=1> deworm_coverage_in_control_group;
+  real<lower=0,upper=1> deworm_replicatability_adjustment;
+  real<lower=0,upper=1> deworm_year_adjustment_treated;
+  real<lower=0> deworm_years_until_benefits;
 }
 model {
   // GiveDirectly
