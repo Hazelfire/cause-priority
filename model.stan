@@ -132,14 +132,40 @@ functions{
      */
     givedirectly_transfers_invested ~ beta(10, 15.64);
 
-    /* Return on investment for givedirectly investments
+    /* Return on investment for givedirectly transfers
      *
      * Value is discussed here:
      * http://www.givewell.org/international/technical/programs/cash-transfers#What_return_on_investment_do_cash-transfer_recipients_earn
      *
+     * Interestingly enough, most often these investments go into buying iron
+     * roofs, which have a high ROI the following study suggests that purchasing
+     * an iron roof has a 19% ROI.
+     * https://files.givewell.org/files/DWDA%202009/Interventions/Cash%20Transfers/haushofer_shapiro_uct_2013.11.16.pdf
      *
+     * Funny enough, GiveDirectly did a survey and got an ROI of 48%, and GiveWell
+     * are unsure how to resolve this discrepency.
+     *
+     * The following research put the ROI of replacing a roof between 7% and 14%
+     * https://www.calpnetwork.org/wp-content/uploads/2020/01/haushofershapiropolicybrief2013.pdf
+     * 
+     * This ROI figure in the spreadsheet of 10% seems to be a conservative estimate
+     * due to the fact that not all transfers go to repair roofs. But has quite a
+     * high uncertainty
+     *
+     * Cell: B15
+     * Units: Unitless (percentage): 0%-inf
+     * TODO: Put this uncertainty into the measure
      */
     givedirectly_roi ~ beta(10, 90);
+
+    /* Baseline annual consumption per capita. How much money the recipients recieved per year
+     * before the transfer.
+     *
+     * The value is from here: 
+     * https://www.givewell.org/files/DWDA%202009/Interventions/GiveWell_cost-effectiveness_analysis_2016.xlsx
+     *
+     * 
+     */
     givedirectly_consumption_per_capita ~ normal(285.92, 70);
     givedirectly_investment_duration ~ normal(10, 2);
     givedirectly_percent_of_investment_returned ~ beta(2, 8);
