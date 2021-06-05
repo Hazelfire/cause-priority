@@ -162,13 +162,40 @@ functions{
      * before the transfer.
      *
      * The value is from here: 
-     * https://www.givewell.org/files/DWDA%202009/Interventions/GiveWell_cost-effectiveness_analysis_2016.xlsx
+     * https://files.givewell.org/files/DWDA%202009/Interventions/Cash%20Transfers/haushofer_shapiro_uct_2013.11.16.pdf
      *
-     * 
+     * Page 49, the figure is multiplied by 12 to get this figure
+     *
+     * TODO: Work out variance on this figure
      */
     givedirectly_consumption_per_capita ~ normal(285.92, 70);
+
+    /* Duration that the investment gives benefits for.
+     *
+     * The figure is from a (locked) document here:
+     * https://docs.google.com/document/d/1-EIu9b7VKS-krLAoBAmIIFlttqku0E0UKFHwyWeKcDE/edit
+     *
+     * This figure is an optimistic guess, that is still lower than the lifetime
+     * of a goat or tin roof. There are no long term studies on the effects of
+     * GiveDirectly recipients
+     *
+     * TODO: Work out variance on this figure
+     */
     givedirectly_investment_duration ~ normal(10, 2);
+
+    /* Percent of investment returned period
+     *
+     * This is an extremely uncertain figure, and is nothing more than a guess
+     * 
+     * TODO: Work out variance on this figure
+     */
     givedirectly_percent_of_investment_returned ~ beta(2, 8);
+
+    /* Discount Negative spoiler
+     * 
+     * This value is discussed here:
+     * https://docs.google.com/document/d/1C4nX3LWM-TeNMFxmNAKRbi4vtt_4ZaLoIGZzlaHmvuI/edit#
+     */
     givedirectly_discount_negative_spoiler ~ beta(1, 19);
 
   /* Deworm the World Givewell
