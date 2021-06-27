@@ -12,7 +12,7 @@ parameters {
 }
 
 model {
-  a ~ exponential(alpha_prior_mu);
-  b ~ exponential(beta_prior_mu);
+  a ~ gamma(2, alpha_prior_mu);
+  b ~ gamma(2, beta_prior_mu);
   y ~ beta(b, a);
 }

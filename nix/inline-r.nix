@@ -27,6 +27,7 @@ mkDerivation {
     base criterion filepath primitive process singletons
     template-haskell vector
   ];
+  doCheck = false;
   homepage = "https://tweag.github.io/HaskellR";
   description = "Seamlessly call R from Haskell and vice versa. No FFI required.";
   license = lib.licenses.bsd3;
